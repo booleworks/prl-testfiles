@@ -1,0 +1,20 @@
+header {
+  prl_version 1.0
+}
+
+module com.booleworks.s1 {
+  enum feature f1 ["a", "b", "c"]
+  enum feature f2 ["a", "x"]
+
+  rule [f1 in ["a", "b"]]
+  rule if [f2 = "a"] thenNot [f1 = "c"]
+}
+
+module com.booleworks.2 {
+  enum feature s1 ["text", "test", "other"]
+  enum feature s2 ["alice", "bob", "chris"]
+
+  rule if [s1 = "text"] / [s1 = "test"] then [s2 = "bob"]
+  rule if [s1 = "text"] thenNot [s2 != "alice"]
+  rule [f2 = "x"]
+}

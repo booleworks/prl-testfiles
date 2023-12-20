@@ -1,0 +1,10 @@
+header {
+  prl_version 1.0
+}
+
+module com.booleworks.test {
+  import com.booleworks.p1
+
+  import com.booleworks.p2
+  import com.booleworks.p3
+}

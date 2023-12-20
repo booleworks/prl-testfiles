@@ -1,0 +1,15 @@
+header {
+  prl_version 1.0
+}
+
+module {
+}
+
+module com.booleworks {
+}
+
+module com.booleworks.p1 {
+}
+
+module com.booleworks.p2 {
+}

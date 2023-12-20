@@ -1,0 +1,7 @@
+header {
+  prl_version 1.0
+}
+
+module {
+  enum feature f1 ["a", "b", "c"]
+}

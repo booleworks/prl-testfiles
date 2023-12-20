@@ -1,0 +1,44 @@
+header {
+  prl_version 1.0
+}
+
+module top {
+  public feature f1
+}
+
+module top.first {
+  private feature f10
+  public feature f11
+
+  rule f1 & f10
+}
+
+module top.second {
+  private feature f20
+  public feature f21
+  internal feature f22
+
+  rule f1 & f20 {
+   id "rule 2"
+  }
+
+  rule top.f1 & f20 {
+    id "rule 3"
+  }
+}
+
+module top.second.a {
+  private feature f20
+  internal feature f22
+  private feature f30
+
+  rule f1 & f21 & f22 & f30
+  rule f20
+  rule top.second.f22
+  rule f22 / top.second.f22 {
+    id "rule 7"
+  }
+  rule top.second.a.f22 / top.second.f22 {
+    id "rule 8"
+  }
+}

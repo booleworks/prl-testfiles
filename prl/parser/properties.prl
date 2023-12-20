@@ -1,0 +1,84 @@
+header {
+  prl_version 1.0
+}
+
+module com.booleworks {
+  import com.booleworks.more
+  import com.booleworks.evenmore
+
+  feature f1 {
+    description "Feature 1"
+    active true
+    releases ["R1", "R2"]
+  }
+  feature f2 {
+    description "Feature 2"
+    active true
+    releases ["R1", "R2"]
+  }
+  feature f3 {
+    description "Feature 3"
+    active false
+    releases ["R3"]
+  }
+  feature f4 {
+    description "Feature 4"
+    active false
+    releases ["R3"]
+  }
+  feature f5 {
+    description "Feature 5"
+    active false
+    releases ["R3"]
+  }
+
+  rule if f1 then f2 {
+    id "r1"
+    description "Rule 1"
+    active true
+  }
+  rule if f4 / f5 thenNot f1 {
+    id "r2"
+    description "Rule 2"
+    active false
+    releases ["R3"]
+  }
+  optional group g contains [f3, f4, f5] {
+    id "r3"
+    description "Rule 3"
+    active false
+    releases ["R3"]
+  }
+}
+
+module com.booleworks.enum {
+  enum feature s1 ["text", "test", "other"] {
+    description "Enum Feature 1"
+    active true
+    releases ["R2", "R3"]
+  }
+
+  rule if f1 then [s1 = "text"] else [s1 = "test"] {
+    id "r4"
+    description "Rule 4"
+    active true
+    releases ["R2", "R3"]
+  }
+}
+
+module com.booleworks.int {
+  int feature i1 [1-10] {
+    description "Int Feature 1"
+    active false
+  }
+  int feature i2 [1-10] {
+    description "Int Feature 2"
+    active false
+  }
+
+  rule if f2 then [i1 = i2] {
+    id "r5"
+    description "Rule 5"
+    active false
+  }
+}

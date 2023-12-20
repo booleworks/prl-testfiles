@@ -1,0 +1,12 @@
+header {
+  prl_version 1.0
+}
+
+module com.boolerules {
+  feature A
+  feature B # intentionally unused in rules
+  feature C # intentionally unused in rules
+  enum feature color ["blue", "red", "yellow"]
+
+  rule if [color = "blue"] then A
+}
