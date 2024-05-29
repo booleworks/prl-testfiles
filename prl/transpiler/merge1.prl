@@ -8,21 +8,19 @@ slicing properties {
   int version
 }
 
-module test {
-  feature a
-  feature b
-  feature c
-  feature x {
-    version [1, 2]
-  }
+feature a
+feature b
+feature c
+feature x {
+  version [1, 2]
+}
 
-  rule if a then b/c {
-    version 1
-  }
-  rule if a then b {
-    version 2
-  }
-  rule a/x {
-    version 3
-  }
+rule if a then b/c {
+  version 1
+}
+rule if a then b {
+  version 2
+}
+rule a/x {
+  version 3
 }
