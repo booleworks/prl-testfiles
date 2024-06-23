@@ -1,3 +1,1 @@
-# PRL Test Files
-
-Testfiles for the PRL (Pragmatic Rule Language).  The compiler can be found [here](https://github.com/booleworks/prl-compiler).
+⚠ This repository is archived.  All components of BooleRules are now developed in a [Monorepo](https://github.com/booleworks/boolerules).
